@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="struts2" extends="struts-default">
+        <action name="login" class="com.neu.action.LoginAction">
+            <result name="success">login/result.jsp</result>
+        </action>
+        <action name="userAction" class="com.neu.action.UserAction">
+            <result name="success">converter/output.jsp</result>
+        </action>
+        <action name="register" class="com.neu.action.RegisterAction">
+            <result name="success">validate/result.jsp</result>
+            <result name="input">validate/register.jsp</result>
+        </action>
+        <action name="action1" class="com.neu.action.Action1">
+            <result name="success" type="redirectAction">
+                <param name="actionName">action2</param>
+                <param name="username">${username}</param>
+                <param name="password">${password}</param>
+                <param name="strAdd">${strAdd}</param>
+            </result>
+        </action>
+        <action name="action2" class="com.neu.action.Action2">
+            <result name="success">redirect/result.jsp</result>
+        </action>
+        <action name="token" class="com.neu.action.TokenAction">
+            <result name="success">token/success.jsp</result>
+            <result name="invalid.token">token/fail.jsp</result>
+            <interceptor-ref name="token"/>
+            <interceptor-ref name="defaultStack"/>
+        </action>
+
+    </package>
+</struts>

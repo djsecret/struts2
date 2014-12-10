@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.2//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<validators>
+    <field name="username">
+        <field-validator type="requiredstring">
+            <message>username can't be blank!</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">4</param>
+            <param name="maxLength">6</param>
+            <message key="username.invalid">the length of username should be between ${minLength} and ${maxLength}</message>
+        </field-validator>
+    </field>
+
+</validators>
